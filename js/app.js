@@ -2,16 +2,16 @@ console.log("tamagotchi");
 
 class Tamagotchi {
   constructor(name) {
-	this.hungry = 1
-	
-	this.bored = 1
+  	this.hungry = 1
+  	
+  	this.bored = 1
 
-	this.sleepy = 1
+  	this.sleepy = 1
 
-	this.age = 0
+  	this.age = 0
 
-	this.name = name
-    
+  	this.name = name
+      
   }
 
 }
@@ -21,50 +21,68 @@ const game = {
   tamNames: "",
   intervalID: null, 
   timeElapsed: 0,
+  age: 0,
+  alive: true,
+  pet: null,
 
+  printValues: function() { // to update each item
+    const nameH = $("#hunger-line")
+    nameH.text(`Hunger: ${this.pet.hungry}`)
+    const nameS = $("#sleepy-line")
+    nameS.text(`Sleep: ${this.pet.sleepy}`)
+    const nameP = $("#play-line")
+    nameP.text(`Bored: ${this.pet.bored}`)
+    const nameA = $("#age-line")
+    nameA.text(`Age: ${this.pet.age}`)
+
+  },
 
   addName: function(str) {
     const tam = new Tamagotchi(str)
     this.tamNames = str
-    this.start()
+    this.pet = tam
   },
 
   feed: function() {
-  	if(this.hungry === true) {
+  	if(this.hungry > 1) {
+  		this.hungry ++
+      // $('#feed-button').text(this.hungry)
   		console.log("feed me!");
-  		this.hungry = false
-  		this.sleepy = true
   	} else {
   		console.log("just ate");
   	}
+    this.printValues()
+
   },
 
+
   sleep: function() {
-    if(this.sleepy === true) {
+    if(this.sleepy > 1) {
       console.log("im tired! going to sleep");
-      this.sleepy = false
-      this.bored = true
-      this.getOlder()
+      this.sleepy ++
+      // $('#sleep-button').text(this.sleepy)
     } else {
       console.log("just woke up, ready for the day!");
     }
+    this.printValues()
   },
 
   getOlder: function() {
     this.age ++
     console.log("just got 1 year older");
-    this.play()
+ 
+    this.printValues()
   },
 
   play: function() {
-    if(this.bored === true) {
+    if(this.bored > 1) {
       console.log("i wanna play!");
-      this.bored = false
-      this.hungry = true
+      this.bored++
+      // $('#play-button').text(this.bored)
     } else {
       console.log("k i'll wait to play later");
-      this.feed()
     }
+    this.printValues()
   },
 
   startTimer: function() {
@@ -73,6 +91,7 @@ const game = {
       this.timeElapsed++
       this.printTime()
     }, 1000) 
+
   },
 
   stopTimer: function() {
@@ -89,17 +108,23 @@ const game = {
     }
 
     console.log(`${mm}:${ss}`); // working BUT called again when name is inputted and goes farther
-
+    // need to append this in the "time:" part
   },
 
   start: function() {
     console.log("show input for name with button? start timer?");
+    console.log(this.pet);
+    this.addName()
+    if(this.pet !== null) {
+      this.printValues()
+    } else {
+      console.log("pet not initiated yet");
+    }
   }
 
  }
 
-
-game.start()
+// game.start()
 
 const itemTextInput = document.querySelector('#item-adding-form')
 
@@ -113,9 +138,24 @@ $('form').on('submit', (e) => {
 
 })
 
+$('#feed-button').on('click', () => {               
+  game.feed()
+  console.log("feed");
+
+})
+
+$('#sleep-button').on('click', () => {              
+  game.sleep()
+  console.log("sleep");
+})
+
+$('#play-button').on('click', () => {
+  game.play()
+  console.log("play");
+})
 
 
-
+// move those code into the printvalues function
 
 
 
