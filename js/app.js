@@ -42,7 +42,8 @@ const game = {
   getOlder: function() {
     this.age ++
     console.log("just got 1 year older");
-  }
+    this.play()
+  },
 
   play: function() {
     if(this.bored === true) {
@@ -51,16 +52,18 @@ const game = {
       this.hungry = true
     } else {
       console.log("k i'll wait patiently to play later");
+      this.feed()
     }
+  },
+
+  start: function() {
+    console.log("show input for name with button?  start timer?");
+    this.sleep()
   }
 
 
 
-
 // need to set the name -- make a form
-
-
-
 
 
 
