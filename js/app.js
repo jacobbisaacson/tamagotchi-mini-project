@@ -16,13 +16,13 @@ class Tamagotchi {
 
 }
 
-const play = {
+const game = {
   
   feed: function() {
   	if(this.hungry === true) {
+  		console.log("feed me!");
   		this.hungry = false
   		this.sleepy = true
-  		console.log("feed me!");
   	} else {
   		console.log("just ate");
   	}
@@ -30,10 +30,10 @@ const play = {
 
   sleep: function() {
     if(this.sleepy === true) {
+      console.log("im tired! going to sleep");
       this.sleepy = false
       this.bored = true
       this.getOlder()
-      console.log("im tired! going to sleep");
     } else {
       console.log("just woke up, ready for the day!");
     }
@@ -43,6 +43,18 @@ const play = {
     this.age ++
     console.log("just got 1 year older");
   }
+
+  play: function() {
+    if(this.bored === true) {
+      console.log("i wanna play!");
+      this.bored = false
+      this.hungry = true
+    } else {
+      console.log("k i'll wait patiently to play later");
+    }
+  }
+
+
 
 
 // need to set the name -- make a form
