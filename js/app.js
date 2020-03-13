@@ -34,6 +34,8 @@ const game = {
     nameP.text(`Play: ${this.pet.bored}`)
     const nameA = $("#age-line")
     nameA.text(`Age: ${this.pet.age}`)
+    const timeLine = $("#time-line")
+    timeLine.text(`Time: ${this.timeElapsed}`)
 
   },
 
@@ -105,15 +107,13 @@ const game = {
     if(ss < 10) {
       ss = "0" + ss 
     }
-    const timeLine = $("#time-line")
-    // timeLine.
     console.log(`${mm}:${ss}`); 
+    this.printValues()
     // working BUT called again when name is inputted and goes farther
     // need to append this in the "time:" part
   },
 
   start: function() {
-    console.log("show input for name with button? start timer?");
     console.log(this.pet);
     this.addName()
     if(this.pet !== null) {
