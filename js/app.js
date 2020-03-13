@@ -19,15 +19,14 @@ class Tamagotchi {
 const game = {
   
   tamNames: "",
+  intervalID: null, 
+  timeElapsed: 0,
+
 
   addName: function(str) {
     const tam = new Tamagotchi(str)
     this.tamNames = str
-    this.printTamName()
-  },
-
-  printTamName: function() {
-
+    this.start()
   },
 
   feed: function() {
@@ -68,10 +67,34 @@ const game = {
     }
   },
 
+  startTimer: function() {
+    this.printTime()
+    this.intervalID = setInterval(() => {
+      this.timeElapsed++
+      this.printTime()
+    }, 1000) 
+  },
+
+  stopTimer: function() {
+    clearInterval(this.intervalID)
+  },
+
+  printTime: function() {
+    const seconds = this.timeElapsed
+    let mm = Math.floor(seconds/60)
+    let ss = seconds - (mm * 60)
+
+    if(ss < 10) {
+      ss = "0" + ss 
+    }
+
+    console.log(`${mm}:${ss}`); // working
+
+  },
+
   start: function() {
     console.log("show input for name with button?  start timer?");
-    this.sleep()
-    this.printTamName()
+    this.startTimer()
   }
 
  }
@@ -86,6 +109,7 @@ $('form').on('submit', (e) => {
   const nameFromForm = $("#item-adding-input").val()
   const nameT = $("#name-line")
   nameT.text(`Name: ${nameFromForm}`)
+  game.start()
 
 })
 
