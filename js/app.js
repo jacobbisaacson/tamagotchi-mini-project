@@ -31,7 +31,7 @@ const game = {
     const nameS = $("#sleepy-line")
     nameS.text(`Sleep: ${this.pet.sleepy}`)
     const nameP = $("#play-line")
-    nameP.text(`Bored: ${this.pet.bored}`)
+    nameP.text(`Play: ${this.pet.bored}`)
     const nameA = $("#age-line")
     nameA.text(`Age: ${this.pet.age}`)
 
@@ -107,7 +107,8 @@ const game = {
       ss = "0" + ss 
     }
 
-    console.log(`${mm}:${ss}`); // working BUT called again when name is inputted and goes farther
+    console.log(`${mm}:${ss}`); 
+    // working BUT called again when name is inputted and goes farther
     // need to append this in the "time:" part
   },
 
@@ -135,13 +136,13 @@ $('form').on('submit', (e) => {
   nameT.text(`Name: ${nameFromForm}`)
   game.start()
   game.startTimer()
+  game.printValues()
 
 })
 
 $('#feed-button').on('click', () => {               
   game.feed()
   console.log("feed");
-
 })
 
 $('#sleep-button').on('click', () => {              
@@ -155,7 +156,6 @@ $('#play-button').on('click', () => {
 })
 
 
-// move those code into the printvalues function
 
 
 
