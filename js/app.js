@@ -26,6 +26,15 @@ const play = {
   	} else {
   		console.log("just ate");
   	}
+  },
+
+  sleep: function() {
+    if(this.sleepy === true) {
+      this.sleepy = false
+      console.log("im tired! going to sleep");
+    } else {
+      console.log("just woke up, ready for the day!");
+    }
   }
 
 
