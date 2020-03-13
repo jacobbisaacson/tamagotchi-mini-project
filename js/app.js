@@ -88,13 +88,12 @@ const game = {
       ss = "0" + ss 
     }
 
-    console.log(`${mm}:${ss}`); // working
+    console.log(`${mm}:${ss}`); // working BUT starts when the page loads AND is called again when name is inputted
 
   },
 
   start: function() {
-    console.log("show input for name with button?  start timer?");
-    this.startTimer()
+    console.log("show input for name with button? start timer?");
   }
 
  }
@@ -110,6 +109,7 @@ $('form').on('submit', (e) => {
   const nameT = $("#name-line")
   nameT.text(`Name: ${nameFromForm}`)
   game.start()
+  game.startTimer()
 
 })
 
