@@ -63,7 +63,7 @@ const game = {
       this.bored = false
       this.hungry = true
     } else {
-      console.log("k i'll wait patiently to play later");
+      console.log("k i'll wait to play later");
       this.feed()
     }
   },
@@ -84,20 +84,26 @@ const game = {
  game.start()
 
 
-$( "input" ).on('submit', (event) => {
-  event.preventDefault()
-  submit(function() {
-    const value = $( this ).val();
-    $( "p" ).text( value );
-  })
-  .submit();
+// $( "input" ).on('submit', (event) => {
+//   event.preventDefault()
+//   submit(function() {
+//     const value = $( this ).val();
+//     $( "div" ).text( value );
+//   })
+//   .submit();
   
-})
+// })
 
 
 
 
+// const container = document.querySelector('.container')
 
+// container.addEventListener('click', (event) => {
+//   // console.log(event.target);
+//   console.log(event.target.id);
+//   app.changeButtonColor('#' + event.target.id)
+// })
 
 
 
