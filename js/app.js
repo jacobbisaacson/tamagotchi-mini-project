@@ -53,7 +53,7 @@ const game = {
   	} else {
   		console.log("just ate");
   	}
-    this.printValues()
+      this.printValues()
 
   },
 
@@ -65,13 +65,15 @@ const game = {
     } else {
       console.log("just woke up, ready for the day!");
     }
-    this.printValues()
+     this.printValues()
   },
 
   getOlder: function() {
-    this.pet.age++
-    console.log("just got 1 year older");
-    this.printValues()
+    if(this.timeElapsed >= 10) {
+      this.pet.age++
+      alert("just got 1 year older");
+    }
+      this.printValues()
   },
 
   play: function() {
@@ -82,7 +84,7 @@ const game = {
     } else {
       console.log("k i'll wait to play later");
     }
-    this.printValues()
+      this.printValues()
   },
 
   startTimer: function() {
