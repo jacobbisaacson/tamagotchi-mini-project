@@ -55,7 +55,6 @@ const game = {
 
   },
 
-
   sleep: function() {
     if(this.sleepy > 1) {
       console.log("im tired! going to sleep");
@@ -106,7 +105,8 @@ const game = {
     if(ss < 10) {
       ss = "0" + ss 
     }
-
+    const timeLine = $("#time-line")
+    // timeLine.
     console.log(`${mm}:${ss}`); 
     // working BUT called again when name is inputted and goes farther
     // need to append this in the "time:" part
@@ -134,6 +134,7 @@ $('form').on('submit', (e) => {
   const nameFromForm = $("#item-adding-input").val()
   const nameT = $("#name-line")
   nameT.text(`Name: ${nameFromForm}`)
+
   game.start()
   game.startTimer()
   game.printValues()
@@ -154,8 +155,6 @@ $('#play-button').on('click', () => {
   game.play()
   console.log("play");
 })
-
-
 
 
 
