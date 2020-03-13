@@ -46,8 +46,8 @@ const game = {
   },
 
   feed: function() {
-  	if(this.hungry > 1) {
-  		this.hungry ++
+  	if(this.pet.hungry < 10) {
+  		this.pet.hungry++
       // $('#feed-button').text(this.hungry)
   		console.log("feed me!");
   	} else {
@@ -58,9 +58,9 @@ const game = {
   },
 
   sleep: function() {
-    if(this.sleepy > 1) {
+    if(this.pet.sleepy < 10) {
       console.log("im tired! going to sleep");
-      this.sleepy ++
+      this.pet.sleepy++
       // $('#sleep-button').text(this.sleepy)
     } else {
       console.log("just woke up, ready for the day!");
@@ -69,16 +69,15 @@ const game = {
   },
 
   getOlder: function() {
-    this.age ++
+    this.pet.age++
     console.log("just got 1 year older");
- 
     this.printValues()
   },
 
   play: function() {
-    if(this.bored > 1) {
+    if(this.pet.bored < 10) {
       console.log("i wanna play!");
-      this.bored++
+      this.pet.bored++
       // $('#play-button').text(this.bored)
     } else {
       console.log("k i'll wait to play later");
@@ -109,8 +108,7 @@ const game = {
     }
     console.log(`${mm}:${ss}`); 
     this.printValues()
-    // working BUT called again when name is inputted and goes farther
-    // need to append this in the "time:" part
+    // working BUT called again when name is inputted and goes faster
   },
 
   start: function() {
