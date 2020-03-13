@@ -23,9 +23,10 @@ const game = {
   addName: function(str) {
     const tam = new Tamagotchi(str)
     this.tamNames.push(tam)
+    this.printTamName()
   },
 
-  printTodos: function() {
+  printTamName: function() {
     const ul = document.querySelector('#tamagotchi-state')
     ul.innerHTML = ""
 
@@ -40,6 +41,8 @@ const game = {
 
       ul.appendChild(li)
     }
+    // "item-text-input"
+    // <p data-which-paragraph="1">Hunger:</p>
 
   },
 
@@ -81,12 +84,10 @@ const game = {
     }
   },
 
-
-
-
   start: function() {
     console.log("show input for name with button?  start timer?");
     this.sleep()
+    this.printTamName()
   }
 
 
@@ -98,14 +99,18 @@ const game = {
 
  }
 
-const itemAddingForm = document.querySelector('#item-adding-form')
-itemAddingForm.addEventListener('submit', (event) => {
-   event.preventDefault()
+ game.start()
+
+  const itemAddingForm = document.querySelector('#item-adding-form')
+  itemAddingForm.addEventListener('submit', (event) => {
+    event.preventDefault()
     const itemTextInput = document.querySelector('#item-text-input')
     game.addName(itemTextInput.value)
     itemTextInput.value = ""
 
 })
+
+
 
 
 
