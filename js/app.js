@@ -18,6 +18,31 @@ class Tamagotchi {
 
 const game = {
   
+  tamNames: [],
+
+  addName: function(str) {
+    const tam = new Tamagotchi(str)
+    this.tamNames.push(tam)
+  },
+
+  printTodos: function() {
+    const ul = document.querySelector('#tamagotchi-state')
+    ul.innerHTML = ""
+
+    for(let i = 0; i < this.tamNames.length; i++) {
+      let tam = this.tamNames[i]
+      
+      const li = document.createElement('li')
+      
+      li.innerText = tam.itemContent
+
+      li.dataset.tamIndex = i
+
+      ul.appendChild(li)
+    }
+
+  },
+
   feed: function() {
   	if(this.hungry === true) {
   		console.log("feed me!");
@@ -56,18 +81,43 @@ const game = {
     }
   },
 
+
+
+
   start: function() {
     console.log("show input for name with button?  start timer?");
     this.sleep()
   }
 
 
-
-// need to set the name -- make a form
-
-
-
+// Add the ability to name your pet using a form. When the form is submitted, 
+// a Tamagotchi should be instantiated with the name the user 
+// typed and stored in a property of the `game` object.
 
 
 
  }
+
+const itemAddingForm = document.querySelector('#item-adding-form')
+itemAddingForm.addEventListener('submit', (event) => {
+   event.preventDefault()
+    const itemTextInput = document.querySelector('#item-text-input')
+    game.addName(itemTextInput.value)
+    itemTextInput.value = ""
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
