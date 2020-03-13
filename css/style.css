@@ -1,3 +1,9 @@
 body {
-  background-color: lightpink;
+	background-color: lightpink;
+}
+
+p {
+	color: blue;
+	font-size: 20px;
+
 }

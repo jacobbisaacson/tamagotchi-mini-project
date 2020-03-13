@@ -18,7 +18,7 @@ class Tamagotchi {
 
 const game = {
   
-  tamNames: [],
+  tamNames: "",
 
   addName: function(str) {
     const tam = new Tamagotchi(str)
@@ -27,22 +27,6 @@ const game = {
   },
 
   printTamName: function() {
-    const ul = document.querySelector('#tamagotchi-state')
-    ul.innerHTML = ""
-
-    for(let i = 0; i < this.tamNames.length; i++) {
-      let tam = this.tamNames[i]
-      
-      const li = document.createElement('li')
-      
-      li.innerText = tam.itemContent
-
-      li.dataset.tamIndex = i
-
-      ul.appendChild(li)
-    }
-    // "item-text-input"
-    // <p data-which-paragraph="1">Hunger:</p>
 
   },
 
@@ -95,20 +79,21 @@ const game = {
 // a Tamagotchi should be instantiated with the name the user 
 // typed and stored in a property of the `game` object.
 
-
-
  }
 
  game.start()
 
-  const itemAddingForm = document.querySelector('#item-adding-form')
-  itemAddingForm.addEventListener('submit', (event) => {
-    event.preventDefault()
-    const itemTextInput = document.querySelector('#item-text-input')
-    game.addName(itemTextInput.value)
-    itemTextInput.value = ""
 
+$( "input" ).on('submit', (event) => {
+  event.preventDefault()
+  submit(function() {
+    const value = $( this ).val();
+    $( "p" ).text( value );
+  })
+  .submit();
+  
 })
+
 
 
 

@@ -19,7 +19,9 @@ Let's use our front-end web development skills to create a "living" pet! We'll u
   * age
   * name
 
-* Add the ability to name your pet using a form. When the form is submitted, a Tamagotchi should be instantiated with the name the user typed and stored in a property of the `game` object.
+* Add the ability to name your pet using a form. When the form is submitted, 
+a Tamagotchi should be instantiated with the name the user 
+typed and stored in a property of the `game` object.
 
 * This should also "start the game", and cause the timer to start running and the following things to happen:
 
