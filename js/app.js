@@ -74,24 +74,12 @@ const game = {
     this.printTamName()
   }
 
-
-// Add the ability to name your pet using a form. When the form is submitted, 
-// a Tamagotchi should be instantiated with the name the user 
-// typed and stored in a property of the `game` object.
-
  }
 
  
 game.start()
 
 const itemTextInput = document.querySelector('#item-adding-form')
-
-// const form = document.querySelector('#item-adding-input')
-// form.addEventListener('submit', (event) => {
-//   event.preventDefault()
-//   console.log("this is itemTextInput.value\n", itemTextInput.value);
-//   console.log("thsi is event.target\n", event.target);
-// })
 
 $('form').on('submit', (e) => {
   e.preventDefault()
@@ -101,42 +89,6 @@ $('form').on('submit', (e) => {
 
 })
 
-
-
-// find the input field
-  // get the text from it
-  // log that text 
-  // console.log(itemTextInput.value);
-
-// make button clikc event listener
-// CL it to see whaet up
-// const $h2 = $('h2')
-// $('h2').on('submit', (event) => {
-//   event.preventDefault()
-//   $h2.text()
-// })
-
-
-// $( "input" ).on('submit', (event) => {
-//   event.preventDefault()
-//   submit(function() {
-//     const value = $( this ).val();
-//     $( "div" ).text( value );
-//   })
-//   .submit();
-  
-// })
-
-
-
-
-// const container = document.querySelector('.container')
-
-// container.addEventListener('click', (event) => {
-//   // console.log(event.target);
-//   console.log(event.target.id);
-//   app.changeButtonColor('#' + event.target.id)
-// })
 
 
 
