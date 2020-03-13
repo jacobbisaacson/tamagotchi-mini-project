@@ -1,7 +1,7 @@
 console.log("tamagotchi");
 
 class Tamagotchi {
-  constructor() {
+  constructor(name) {
 	this.hungry = false
 	
 	this.bored = false
@@ -22,7 +22,7 @@ const game = {
 
   addName: function(str) {
     const tam = new Tamagotchi(str)
-    this.tamNames.push(tam)
+    this.tamNames = str
     this.printTamName()
   },
 
@@ -81,7 +81,40 @@ const game = {
 
  }
 
- game.start()
+ 
+game.start()
+
+const itemTextInput = document.querySelector('#item-adding-form')
+
+// const form = document.querySelector('#item-adding-input')
+// form.addEventListener('submit', (event) => {
+//   event.preventDefault()
+//   console.log("this is itemTextInput.value\n", itemTextInput.value);
+//   console.log("thsi is event.target\n", event.target);
+// })
+
+$('form').on('submit', (e) => {
+  e.preventDefault()
+  const nameFromForm = $("#item-adding-input").val()
+  const nameT = $("#name-line")
+  nameT.text(`Name: ${nameFromForm}`)
+
+})
+
+
+
+// find the input field
+  // get the text from it
+  // log that text 
+  // console.log(itemTextInput.value);
+
+// make button clikc event listener
+// CL it to see whaet up
+// const $h2 = $('h2')
+// $('h2').on('submit', (event) => {
+//   event.preventDefault()
+//   $h2.text()
+// })
 
 
 // $( "input" ).on('submit', (event) => {
