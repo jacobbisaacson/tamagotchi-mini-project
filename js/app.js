@@ -2,11 +2,11 @@ console.log("tamagotchi");
 
 class Tamagotchi {
   constructor(name) {
-	this.hungry = false
+	this.hungry = 1
 	
-	this.bored = false
+	this.bored = 1
 
-	this.sleepy = false
+	this.sleepy = 1
 
 	this.age = 0
 
@@ -88,7 +88,7 @@ const game = {
       ss = "0" + ss 
     }
 
-    console.log(`${mm}:${ss}`); // working BUT starts when the page loads AND is called again when name is inputted
+    console.log(`${mm}:${ss}`); // working BUT called again when name is inputted and goes farther
 
   },
 
@@ -98,7 +98,7 @@ const game = {
 
  }
 
- 
+
 game.start()
 
 const itemTextInput = document.querySelector('#item-adding-form')
@@ -112,6 +112,10 @@ $('form').on('submit', (e) => {
   game.startTimer()
 
 })
+
+
+
+
 
 
 
